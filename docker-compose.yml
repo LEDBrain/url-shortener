@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  url-shortener:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=url-shortener
+      - DB_PASSWORD=url-shortener
+      - DB_DATABASE=url-shortener
+      - DB_PORT=3306
+    depends_on:
+      - mysql
+    links:
+      - "mysql"
+  mysql:
+    image: mysql:5
+    environment:
+      - MYSQL_DATABASE=url-shortener
+      - MYSQL_USER=url-shortener
+      - MYSQL_PASSWORD=url-shortener
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - mysql-volume:/var/lib/mysql
+
+volumes:
+  mysql-volume: {}
