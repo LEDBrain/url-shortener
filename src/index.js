@@ -28,6 +28,14 @@ const indexDB = () => {
     });
 };
 
+process.on('unhandledRejection', (reason) => {
+    if (reason.code === 'ECONNREFUSED') {
+        throw new Error(
+            'Could not connect to the database! Please check your settings!'
+        );
+    }
+});
+
 const app = express();
 
 app.use(morgan('dev'));
