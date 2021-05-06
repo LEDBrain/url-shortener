@@ -11,3 +11,15 @@ updates:
         include: "scope"
     reviewers:
       - "KokosnussDEV"
+      
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "KokosnussDEV"
+    commit-message:
+        prefix: "⬆️"
+        include: "scope"
+    reviewers:
+      - "KokosnussDEV"
