@@ -5,21 +5,21 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "KokosnussDEV"
+      - "kdev"
     commit-message:
         prefix: "⬆️"
         include: "scope"
     reviewers:
-      - "KokosnussDEV"
+      - "kdev"
       
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
     assignees:
-      - "KokosnussDEV"
+      - "kdev"
     commit-message:
         prefix: "⬆️"
         include: "scope"
     reviewers:
-      - "KokosnussDEV"
+      - "kdev"
