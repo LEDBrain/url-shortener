@@ -3,7 +3,7 @@ name: Feature request
 about: Suggest an idea/feature for this project
 title: "[FEATURE REQUEST]"
 labels: enhancement
-assignees: KokosnussDEV
+assignees: kdev
 
 ---
 
