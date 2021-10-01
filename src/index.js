@@ -21,7 +21,7 @@ const indexDB = () => {
         if (!exists) {
             return knex.schema.createTable('redirects', (table) => {
                 table.increments('id').primary();
-                table.string('redirCode');
+                table.string('shortCode');
                 table.string('url');
             });
         }
@@ -46,12 +46,12 @@ app.get('/', (req, res, next) => {
     res.status(404).send({ error: 'Invalid!' });
 });
 
-app.get('/:id', async (req, res, next) => {
-    const { id: redirCode } = req.params;
+app.get('/:short_code', async (req, res, next) => {
+    const { short_code: shortCode } = req.params;
     try {
         const dbRecord = await knex('redirects')
             .select('url')
-            .where('redirCode', redirCode);
+            .where('shortCode', shortCode);
         if (dbRecord[0]) res.redirect(dbRecord[0].url);
         res.status(404);
     } catch (error) {
@@ -60,16 +60,17 @@ app.get('/:id', async (req, res, next) => {
 });
 
 app.post('/create', async (req, res, next) => {
-    let { id: redirCode, url } = req.body;
+    let { short_code_request: shortCode, url } = req.body;
     try {
-        redirCode = redirCode ?? nanoid(7).toLowerCase();
+        shortCode = shortCode ?? nanoid(7).toLowerCase();
         const codeInDB = await knex('redirects')
             .select('*')
-            .where('redirCode', redirCode);
+            .where('shortCode', shortCode);
         if (codeInDB[0]) throw new Error('short-code already in use!');
-        await knex('redirects').insert({ redirCode, url });
-        res.json({ redirCode, url });
+        await knex('redirects').insert({ shortCode, url });
+        res.json({ shortCode, url });
     } catch (error) {
+        error.status = 409;
         next(error);
     }
 });
@@ -78,7 +79,6 @@ app.use((error, req, res, next) => {
     res.status(error.status ?? 500);
     res.json({
         messsage: error.message,
-        stack: error.stack,
     });
 });
 
