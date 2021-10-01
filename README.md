@@ -12,7 +12,31 @@ A tiny utility to short long URLs
 
 ### Installation
 
-ToDo
+We only provide a Docker image for installation. Make sure you are familiar with Docker.
+
+**Docker**
+
+When you already have an existing Database, you can use the Dockerfile/Image to create a new container.
+
+You can pull the prebuild image from Docker Hub
+
+```bash
+docker pull ledbrain/url-shortener
+```
+
+**Docker Compose**
+
+To use the compose file, clone the repo, configure the `docker-compose.yml` and then do:
+
+```bash
+docker-compose up -d
+```
+
+To stop it, use
+
+```bash
+docker-compose down
+```
 
 ## API Documentation
 
