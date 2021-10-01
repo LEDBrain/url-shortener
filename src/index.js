@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const { nanoid } = require('nanoid');
+const rateLimit = require('express-rate-limit');
 
 require('dotenv').config();
 
@@ -36,8 +37,14 @@ process.on('unhandledRejection', (reason) => {
     }
 });
 
-const app = express();
+const limiter = rateLimit({
+    windowMs: 5 * 60 * 1000, // 5 Minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+    message: 'Too many requests, please try again later.',
+});
 
+const app = express();
+app.use(limiter);
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
