@@ -14,6 +14,10 @@ A tiny utility to short long URLs
 
 ToDo
 
+## API Documentation
+
+See in [API.md](API.md)
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
