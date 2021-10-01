@@ -12,7 +12,7 @@
         "type": "git",
         "url": "git+https://github.com/LEDBrain/url-shortener.git"
     },
-    "author": "TeamCoffeeCodes",
+    "author": "LEDBrain",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/LEDBrain/url-shortener/issues"

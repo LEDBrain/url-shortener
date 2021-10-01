@@ -1,25 +1,37 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "daily"
-    assignees:
-      - "kdev"
-    commit-message:
-        prefix: "⬆️"
-        include: "scope"
-    reviewers:
-      - "kdev"
-      
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    assignees:
-      - "kdev"
-    commit-message:
-        prefix: "⬆️"
-        include: "scope"
-    reviewers:
-      - "kdev"
+    - package-ecosystem: 'npm'
+      directory: '/' # Location of package manifests
+      schedule:
+          interval: 'daily'
+      assignees:
+          - 'kdev'
+      commit-message:
+          prefix: '⬆️ npm'
+          include: 'scope'
+      reviewers:
+          - 'kdev'
+
+    - package-ecosystem: 'github-actions'
+      directory: '/'
+      schedule:
+          interval: 'daily'
+      assignees:
+          - 'kdev'
+      commit-message:
+          prefix: '⬆️ gh-actions'
+          include: 'scope'
+      reviewers:
+          - 'kdev'
+
+    - package-ecosystem: 'docker'
+      directory: '/'
+      schedule:
+          interval: 'daily'
+      assignees:
+          - 'kdev'
+      commit-message:
+          prefix: '⬆️ docker'
+          include: 'scope'
+      reviewers:
+          - 'kdev'
