@@ -26,7 +26,7 @@
         "knex": "^0.95.11",
         "morgan": "^1.10.0",
         "mysql": "^2.18.1",
-        "nanoid": "^3.1.28"
+        "nanoid": "^3.1.29"
     },
     "devDependencies": {
         "nodemon": "^2.0.13"
