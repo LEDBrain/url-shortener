@@ -29,6 +29,6 @@
         "nanoid": "^3.1.30"
     },
     "devDependencies": {
-        "nodemon": "^2.0.13"
+        "nodemon": "^2.0.14"
     }
 }
